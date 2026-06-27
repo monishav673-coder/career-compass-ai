@@ -5,57 +5,41 @@
 
     <style>
         body{
-            font-family: Arial, sans-serif;
+            font-family: Arial;
             background: linear-gradient(135deg,#2b6cff,#5b8cff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
         }
 
         .box{
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            width: 320px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        h2{
-            color: #2b6cff;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            width:300px;
+            text-align:center;
         }
 
         input,button{
-            width: 90%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        input{
-            border: 1px solid #ccc;
+            width:90%;
+            padding:10px;
+            margin:10px 0;
         }
 
         button{
-            background: #2b6cff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover{
-            background: #1a4fd6;
+            background:#2b6cff;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
         }
 
         a{
-            text-decoration: none;
-        }
-
-        p{
-            margin-top: 15px;
+            text-decoration:none;
+            color:#2b6cff;
+            font-weight:bold;
         }
     </style>
 </head>
@@ -64,25 +48,23 @@
 
 <div class="box">
 
-    <h2>Career Compass AI 🎓</h2>
+    <h2>Career Compass AI</h2>
 
     <input type="text"
            id="loginUser"
-           placeholder="Enter Username">
+           placeholder="Username">
 
     <input type="password"
            id="loginPass"
-           placeholder="Enter Password">
+           placeholder="Password">
 
     <button onclick="loginUser()">
         Login
     </button>
 
-    <p>Don't have an account?</p>
-
-    <a href="register.html">
-        <button>Create Account</button>
-    </a>
+    <p>Don't have an account?
+        <a href="register.html">Register</a>
+    </p>
 
 </div>
 
@@ -102,6 +84,17 @@ function loginUser(){
     let savedPass =
     localStorage.getItem("pass");
 
+    // Check if user has registered
+    if(savedUser === null || savedPass === null){
+
+        alert("Please Register First");
+
+        window.location.href = "register.html";
+
+        return;
+    }
+
+    // Check login details
     if(username === savedUser &&
        password === savedPass){
 
