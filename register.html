@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Compass AI - Register</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#2b6cff,#5b8cff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box{
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            color: #2b6cff;
+        }
+
+        input, button{
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        input{
+            border: 1px solid #ccc;
+        }
+
+        button{
+            background: #2b6cff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background: #1a4fd6;
+        }
+
+        a{
+            color: #2b6cff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Career Compass AI 🎓</h2>
+
+    <input type="text"
+           id="username"
+           placeholder="Enter Username">
+
+    <input type="password"
+           id="password"
+           placeholder="Enter Password">
+
+    <button onclick="registerUser()">
+        Register
+    </button>
+
+    <p>
+        Already have an account?
+        <a href="login.html">Login</a>
+    </p>
+
+</div>
+
+<script>
+
+function registerUser(){
+
+    let username =
+    document.getElementById("username").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    if(username === "" || password === ""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    localStorage.setItem("user", username);
+    localStorage.setItem("pass", password);
+
+    alert("Registration Successful");
+
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>

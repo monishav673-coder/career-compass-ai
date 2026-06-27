@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile - Career Compass AI</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f0f4ff;
+    margin: 0;
+}
+
+.header{
+    background: #2b6cff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card{
+    background: white;
+    width: 350px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px #cccccc;
+}
+
+.profile-icon{
+    font-size: 60px;
+}
+
+h2{
+    color: #2b6cff;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #2b6cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover{
+    background: #1a4fd6;
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+
+    alert("Please Login First");
+    window.location.href = "login.html";
+}
+</script>
+
+<div class="header">
+    <h2>👤 My Profile</h2>
+</div>
+
+<div class="card">
+
+    <div class="profile-icon">👨‍🎓</div>
+
+    <h2 id="username"></h2>
+
+    <p><b>Account Status:</b> Active ✅</p>
+
+    <button onclick="careerDetails()">
+        📚 View Career Details
+    </button>
+
+    <button onclick="goHome()">
+        🏠 Back to Home
+    </button>
+
+    <button onclick="logout()">
+        🚪 Logout
+    </button>
+
+</div>
+
+<script>
+
+document.getElementById("username").innerHTML =
+localStorage.getItem("user");
+
+function careerDetails(){
+    window.location.href = "career-details.html";
+}
+
+function goHome(){
+    window.location.href = "index.html";
+}
+
+function logout(){
+
+    localStorage.removeItem("isLoggedIn");
+
+    alert("Logged Out Successfully");
+
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>

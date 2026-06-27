@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Compass AI</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f0f4ff;
+            margin: 0;
+        }
+
+        .header{
+            background: #2b6cff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card{
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        select, button{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button{
+            background: #2b6cff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background: #1a4fd6;
+        }
+
+        #result{
+            margin-top: 20px;
+            color: #2b6cff;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+    alert("Please Login First");
+    window.location.href = "login.html";
+}
+</script>
+
+<div class="header">
+    <h2>Career Compass AI 🎓</h2>
+    <p>Find your best career path</p>
+</div>
+
+<div class="card">
+
+    <h3>🎯 Career Assessment</h3>
+
+    <p>1. Which subject do you like the most?</p>
+
+    <select id="subject">
+        <option value="">Select</option>
+        <option value="computer">Computer Science</option>
+        <option value="biology">Biology</option>
+        <option value="commerce">Commerce</option>
+        <option value="arts">Arts</option>
+    </select>
+
+    <p>2. What are you interested in?</p>
+
+    <select id="interest">
+        <option value="">Select</option>
+        <option value="programming">Programming</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="business">Business</option>
+        <option value="design">Design</option>
+    </select>
+
+    <button onclick="recommendCareer()">
+        Get Recommendation
+    </button>
+
+    <button onclick="downloadPDF()">
+        📄 Download Career Report
+    </button>
+
+    <button onclick="window.location.href='roadmap.html'">
+        🗺️ Career Roadmap
+    </button>
+
+    <h3 id="result"></h3>
+
+</div>
+
+<div class="card">
+
+    <button onclick="window.location.href='profile.html'">
+        👤 Profile
+    </button>
+
+    <button onclick="window.location.href='career-details.html'">
+        📚 Career Details
+    </button>
+
+    <button onclick="logout()">
+        🚪 Logout
+    </button>
+
+</div>
+
+<script>
+
+function recommendCareer(){
+
+    let subject =
+    document.getElementById("subject").value;
+
+    let interest =
+    document.getElementById("interest").value;
+
+    let result = "";
+
+    if(subject === "computer" ||
+       interest === "programming"){
+
+        result =
+        "💻 Software Engineer<br>" +
+        "🤖 AI Engineer<br>" +
+        "📊 Data Scientist<br>" +
+        "🔒 Cyber Security Engineer<br>" +
+        "🌐 Web Developer";
+    }
+
+    else if(subject === "biology" ||
+            interest === "healthcare"){
+
+        result =
+        "🩺 Doctor<br>" +
+        "👩‍⚕️ Nurse<br>" +
+        "💊 Pharmacist<br>" +
+        "🧬 Biotechnologist<br>" +
+        "🏥 Physiotherapist";
+    }
+
+    else if(subject === "commerce" ||
+            interest === "business"){
+
+        result =
+        "💼 Accountant<br>" +
+        "📈 Business Analyst<br>" +
+        "💰 Financial Analyst<br>" +
+        "🏢 Entrepreneur<br>" +
+        "📋 Chartered Accountant (CA)";
+    }
+
+    else if(subject === "arts" ||
+            interest === "design"){
+
+        result =
+        "🎨 Graphic Designer<br>" +
+        "🎬 Animator<br>" +
+        "🖌️ UI/UX Designer<br>" +
+        "📹 Content Creator<br>" +
+        "👗 Fashion Designer";
+    }
+
+    else{
+        result = "Please select all options";
+    }
+
+    document.getElementById("result").innerHTML = result;
+}
+
+function downloadPDF(){
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let username = localStorage.getItem("user");
+    let recommendation =
+    document.getElementById("result").innerText;
+
+    if(recommendation === ""){
+        alert("Please get a recommendation first");
+        return;
+    }
+
+    doc.setFontSize(18);
+    doc.text("Career Compass AI", 20, 20);
+
+    doc.setFontSize(14);
+    doc.text("Career Recommendation Report", 20, 35);
+
+    doc.setFontSize(12);
+    doc.text("Username: " + username, 20, 50);
+
+    doc.text("Recommended Careers:", 20, 70);
+
+    doc.text(recommendation, 20, 85);
+
+    doc.save("Career_Report.pdf");
+}
+
+function logout(){
+
+    localStorage.removeItem("isLoggedIn");
+
+    alert("Logged Out Successfully");
+
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
