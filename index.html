@@ -6,8 +6,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
+
         body{
-            font-family: Arial, sans-serif;
+            font-family:Arial,sans-serif;
             background:#f0f4ff;
             margin:0;
         }
@@ -52,21 +53,31 @@
             font-size:18px;
             line-height:1.8;
         }
+
     </style>
+
 </head>
 
 <body>
 
 <script>
-if(localStorage.getItem("isLoggedIn") !== "true"){
+
+if(localStorage.getItem("isLoggedIn")!=="true"){
+
     alert("Please Login First");
-    window.location.href = "login.html";
+
+    window.location.href="login.html";
+
 }
+
 </script>
 
 <div class="header">
-    <h2>Career Compass AI 🎓</h2>
-    <p>Find your best career path</p>
+
+<h2>Career Compass AI 🎓</h2>
+
+<p>Find your best career path</p>
+
 </div>
 
 <div class="card">
@@ -76,37 +87,51 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
 <p>1. Which subject do you like the most?</p>
 
 <select id="subject">
-    <option value="">Select</option>
-    <option value="computer">Computer Science</option>
-    <option value="biology">Biology</option>
-    <option value="commerce">Commerce</option>
-    <option value="arts">Arts</option>
+
+<option value="">Select</option>
+
+<option value="computer">Computer Science</option>
+
+<option value="biology">Biology</option>
+
+<option value="commerce">Commerce</option>
+
+<option value="arts">Arts</option>
+
 </select>
 
 <p>2. What are you interested in?</p>
 
 <select id="interest">
-    <option value="">Select</option>
-    <option value="programming">Programming</option>
-    <option value="healthcare">Healthcare</option>
-    <option value="business">Business</option>
-    <option value="design">Design</option>
+
+<option value="">Select</option>
+
+<option value="programming">Programming</option>
+
+<option value="healthcare">Healthcare</option>
+
+<option value="business">Business</option>
+
+<option value="design">Design</option>
+
 </select>
 
 <button onclick="recommendCareer()">
+
 Get Recommendation
+
 </button>
 
 <button onclick="downloadPDF()">
+
 📄 Download Career Report
+
 </button>
 
 <button onclick="window.location.href='roadmap.html'">
-🗺️ Career Roadmap
-</button>
 
-<button onclick="window.location.href='career-details.html'">
-📚 Career Details
+🗺️ Career Roadmap
+
 </button>
 
 <h3 id="result"></h3>
@@ -116,11 +141,21 @@ Get Recommendation
 <div class="card">
 
 <button onclick="window.location.href='profile.html'">
+
 👤 Profile
+
+</button>
+
+<button onclick="window.location.href='career-details.html'">
+
+📚 Career Details
+
 </button>
 
 <button onclick="logout()">
+
 🚪 Logout
+
 </button>
 
 </div>
@@ -130,32 +165,10 @@ Get Recommendation
 function recommendCareer(){
 
 let subject=document.getElementById("subject").value;
+
 let interest=document.getElementById("interest").value;
 
-let result="";
-
-if(subject==="computer" || interest==="programming"){
-
-result=
-"💻 Software Engineer<br>"+
-"🤖 AI Engineer<br>"+
-"📊 Data Scientist<br>"+
-"🔒 Cyber Security Engineer<br>"+
-"🌐 Web Developer";
-
-}
-
-else if(subject==="biology" || interest==="healthcare"){
-
-result=
-"🩺 Doctor<br>"+
-"👩‍⚕️ Nurse<br>"+
-"💊 Pharmacist<br>"+
-"🧬 Biotechnologist<br>"+
-"🏥 Physiotherapist";
-
-}
-    <!DOCTYPE html>
+let result="";<!DOCTYPE html>
 <html>
 <head>
     <title>Career Compass AI</title>
@@ -163,8 +176,9 @@ result=
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
+
         body{
-            font-family: Arial, sans-serif;
+            font-family:Arial,sans-serif;
             background:#f0f4ff;
             margin:0;
         }
@@ -209,21 +223,31 @@ result=
             font-size:18px;
             line-height:1.8;
         }
+
     </style>
+
 </head>
 
 <body>
 
 <script>
-if(localStorage.getItem("isLoggedIn") !== "true"){
+
+if(localStorage.getItem("isLoggedIn")!=="true"){
+
     alert("Please Login First");
-    window.location.href = "login.html";
+
+    window.location.href="login.html";
+
 }
+
 </script>
 
 <div class="header">
-    <h2>Career Compass AI 🎓</h2>
-    <p>Find your best career path</p>
+
+<h2>Career Compass AI 🎓</h2>
+
+<p>Find your best career path</p>
+
 </div>
 
 <div class="card">
@@ -233,37 +257,51 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
 <p>1. Which subject do you like the most?</p>
 
 <select id="subject">
-    <option value="">Select</option>
-    <option value="computer">Computer Science</option>
-    <option value="biology">Biology</option>
-    <option value="commerce">Commerce</option>
-    <option value="arts">Arts</option>
+
+<option value="">Select</option>
+
+<option value="computer">Computer Science</option>
+
+<option value="biology">Biology</option>
+
+<option value="commerce">Commerce</option>
+
+<option value="arts">Arts</option>
+
 </select>
 
 <p>2. What are you interested in?</p>
 
 <select id="interest">
-    <option value="">Select</option>
-    <option value="programming">Programming</option>
-    <option value="healthcare">Healthcare</option>
-    <option value="business">Business</option>
-    <option value="design">Design</option>
+
+<option value="">Select</option>
+
+<option value="programming">Programming</option>
+
+<option value="healthcare">Healthcare</option>
+
+<option value="business">Business</option>
+
+<option value="design">Design</option>
+
 </select>
 
 <button onclick="recommendCareer()">
+
 Get Recommendation
+
 </button>
 
 <button onclick="downloadPDF()">
+
 📄 Download Career Report
+
 </button>
 
 <button onclick="window.location.href='roadmap.html'">
-🗺️ Career Roadmap
-</button>
 
-<button onclick="window.location.href='career-details.html'">
-📚 Career Details
+🗺️ Career Roadmap
+
 </button>
 
 <h3 id="result"></h3>
@@ -273,11 +311,21 @@ Get Recommendation
 <div class="card">
 
 <button onclick="window.location.href='profile.html'">
+
 👤 Profile
+
+</button>
+
+<button onclick="window.location.href='career-details.html'">
+
+📚 Career Details
+
 </button>
 
 <button onclick="logout()">
+
 🚪 Logout
+
 </button>
 
 </div>
@@ -287,32 +335,117 @@ Get Recommendation
 function recommendCareer(){
 
 let subject=document.getElementById("subject").value;
+
 let interest=document.getElementById("interest").value;
 
-let result="";
+let result="";if(subject==="computer" || interest==="programming"){
 
-if(subject==="computer" || interest==="programming"){
-
-result=
-"💻 Software Engineer<br>"+
-"🤖 AI Engineer<br>"+
-"📊 Data Scientist<br>"+
-"🔒 Cyber Security Engineer<br>"+
-"🌐 Web Developer";
+    result=
+    "💻 Software Engineer<br>"+
+    "🤖 AI Engineer<br>"+
+    "📊 Data Scientist<br>"+
+    "🔒 Cyber Security Engineer<br>"+
+    "🌐 Web Developer";
 
 }
 
 else if(subject==="biology" || interest==="healthcare"){
 
-result=
-"🩺 Doctor<br>"+
-"👩‍⚕️ Nurse<br>"+
-"💊 Pharmacist<br>"+
-"🧬 Biotechnologist<br>"+
-"🏥 Physiotherapist";
+    result=
+    "🩺 Doctor<br>"+
+    "👩‍⚕️ Nurse<br>"+
+    "💊 Pharmacist<br>"+
+    "🧬 Biotechnologist<br>"+
+    "🏥 Physiotherapist";
 
 }
-    function logout(){
+
+else if(subject==="commerce" || interest==="business"){
+
+    result=
+    "💼 Accountant<br>"+
+    "📈 Business Analyst<br>"+
+    "💰 Financial Analyst<br>"+
+    "🏢 Entrepreneur<br>"+
+    "📋 Chartered Accountant (CA)";
+
+}
+
+else if(subject==="arts" || interest==="design"){
+
+    result=
+    "🎨 Graphic Designer<br>"+
+    "🎬 Animator<br>"+
+    "🖌️ UI/UX Designer<br>"+
+    "📹 Content Creator<br>"+
+    "👗 Fashion Designer";
+
+}
+
+else{
+
+    result="Please select all options";
+
+}
+
+document.getElementById("result").innerHTML=result;
+
+}
+
+function downloadPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    let username = localStorage.getItem("user");
+
+    let recommendation =
+    document.getElementById("result").innerText;
+
+    if(recommendation===""){
+
+        alert("Please get a recommendation first");
+
+        return;
+
+    }
+
+    recommendation =
+    recommendation.replace(/[^\x00-\x7F]/g,"");
+
+    doc.setFontSize(18);
+    doc.text("Career Compass AI",20,20);
+
+    doc.setFontSize(14);
+    doc.text("Career Recommendation Report",20,35);
+
+    doc.setFontSize(12);
+    doc.text("Username: "+username,20,50);
+
+    doc.text("Date: "+new Date().toLocaleDateString(),20,60);
+
+    doc.text("Recommended Careers:",20,75);
+
+    let y=90;
+
+    let careers=recommendation.split("\n");
+
+    for(let i=0;i<careers.length;i++){
+
+        if(careers[i].trim()!==""){
+
+            doc.text("- "+careers[i],25,y);
+
+            y+=10;
+
+        }
+
+    }
+
+    doc.save("Career_Report.pdf");
+
+}function logout(){
 
     localStorage.removeItem("isLoggedIn");
 
@@ -325,4 +458,5 @@ result=
 </script>
 
 </body>
+
 </html>
